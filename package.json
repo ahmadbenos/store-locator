@@ -1,0 +1,23 @@
+{
+  "name": "store_locator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.9",
+    "node-geocoder": "^3.27.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.5"
+  }
+}
