@@ -20,7 +20,41 @@ async function getData(){
 }catch(err){ if(err) console.log(err)}
 
 
+const myGeoJSON = {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            35.80169677734375,
+            34.023071367612125
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+            title: "2nd store"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            36.05987548828124,
+            34.15954545771158
+          ]
+        }
+      }
+    ]
+  }
 
+  L.geoJSON(myGeoJSON, {
+      onEachFeature: function(feature, layer){
+          layer.bindPopup(`<p>${feature.properties.title}</p>`)
+      }
+  }).addTo(mymap)
 
 }
 
@@ -28,6 +62,7 @@ async function getData(){
 getData();
 
 
+ 
 
 
 
@@ -37,9 +72,6 @@ getData();
 
 
 
-/* fetch(`${window.location.href}se_c_aplol`).then((res) => {
-   res.json().then(key => {
-       apiKey.push(key.key)
-       console.log(apiKey[0])
-})
-}).catch(err => console.log(err)) */
+
+
+
