@@ -16,11 +16,10 @@ app.use(express.urlencoded({extended: false}))
 app.use(express.static(path.join(__dirname, "views")));
 
 
-app.get("/se_c_aplol", (req, res) =>{
-    res.send({key: process.env.MAPBOX_API})
-})
+
 
 app.use("/", require("./routes/index"));
+app.use("/se_c_aplol", require("./routes/utils"));
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
