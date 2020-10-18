@@ -25,7 +25,10 @@ const myGeoJSON = {
     "features": [
       {
         "type": "Feature",
-        "properties": {},
+        "properties": {
+          title: "1st store"
+          //id: storeID
+        },
         "geometry": {
           "type": "Point",
           "coordinates": [
