@@ -17,12 +17,14 @@
             <form action="/addStore" method="POST">
                 <div class="form-group">
                     <label for="store-name">Store Name</label>
-                    <input type="text" class="form-control" id="store-name" name="storeName">
+                    <input autocomplete="off" required type="text" class="form-control" id="store-name"
+                        name="storeName">
                 </div>
 
                 <div class="form-group">
-                    <label for="address">Store address</label>
-                    <input type="text" class="form-control" id="address" name="address">
+                    <label for="storeAddress">Store address</label>
+                    <input autocomplete="off" type="text" class="form-control" id="storeAddress"
+                        name="storeAddress" required>
                     <small id="address-help" class="form-text text-muted">Make sure to type your full address,
                         make it accurate as much as possible.</small>
                 </div>
@@ -34,12 +36,14 @@
                 <h4>Or use my current location</h4>
                 <div class="form-group">
                     <label for="store-name">Store Name</label>
-                    <input type="text" class="form-control" id="store-name" name="storeName">
+                    <input autocomplete="off" required type="text" class="form-control" id="store-name"
+                        name="storeName">
                 </div>
-                <button class="btn btn-primary">Use my location</button>
+                <button id="location-btn" class="btn btn-primary">Use my location</button>
             </form>
         </div>
     </div>
+    <script src="js/addScript.js"></script>
 </body>
 
 </html>
