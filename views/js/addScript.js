@@ -4,11 +4,11 @@ btn.addEventListener("click", (e)=>{
     e.preventDefault()
     const userLocation = navigator.geolocation;
     if(userLocation){
-        console.log("User allowed access");
         userLocation.getCurrentPosition((position) => {
+            console.log("User allowed access");
             console.log(position.coords.latitude);
-        })
+        }, (error) => console.log("User denied Access"))
     } else { 
-        console.log("User denied access")
+        console.log("Geolocation is not supported on your browser")
     }
 })
