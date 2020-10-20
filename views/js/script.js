@@ -1,7 +1,7 @@
 var mymap = L.map('mapid').setView([51.505, -0.09], 12);
 
 // or using async function: 
-async function getData(){
+async function getMap(){
     try{ 
  const data = await fetch(`${window.location.href}se_c_aplol`) 
  const res = await data.json(); 
@@ -20,52 +20,54 @@ async function getData(){
 }catch(err){ if(err) console.log(err)}
 
 
-const myGeoJSON = {
-    "type": "FeatureCollection",
-    "features": [
-      {
-        "type": "Feature",
-        "properties": {
-          title: "1st store"
-          //id: storeID
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            35.80169677734375,
-            34.023071367612125
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-            title: "2nd store"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            36.05987548828124,
-            34.15954545771158
-          ]
-        }
-      }
-    ]
-  }
-
-  L.geoJSON(myGeoJSON, {
-      onEachFeature: function(feature, layer){
-          layer.bindPopup(`<p>${feature.properties.title}</p>`)
-      }
-  }).addTo(mymap)
-
 }
 
-// call the function
-getData();
+// call the function to retrieve the map
+getMap();
 
 
+async function getData(){
+const res = fetch("/addStores")
+}
+
+const myGeoJSON = {
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        title: "1st store"
+        //id: storeID
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.80169677734375,
+          34.023071367612125
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+          title: "2nd store"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.05987548828124,
+          34.15954545771158
+        ]
+      }
+    }
+  ]
+}
  
+L.geoJSON(myGeoJSON, {
+  onEachFeature: function(feature, layer){
+      layer.bindPopup(`<p>${feature.properties.title}</p>`)
+  }
+}).addTo(mymap)
 
 
 
