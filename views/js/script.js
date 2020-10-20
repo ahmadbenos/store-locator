@@ -27,47 +27,55 @@ getMap();
 
 
 async function getData(){
-const res = fetch("/addStores")
+  const res = await fetch(`${window.location.href}getStores`);
+  const stores = await res.json();
+  console.log(stores[0]);
+
+  //add the stores to the map
+  let myGeoJSON = {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          title: "1st store"
+          //id: storeID
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            35.80169677734375,
+            34.023071367612125
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+            title: "2nd store"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            36.05987548828124,
+            34.15954545771158
+          ]
+        }
+      }
+    ]
+  }
+   
+  L.geoJSON(myGeoJSON, {
+    onEachFeature: function(feature, layer){
+        layer.bindPopup(`<p>test</p>`)
+    }
+  }).addTo(mymap)
 }
 
-const myGeoJSON = {
-  "type": "FeatureCollection",
-  "features": [
-    {
-      "type": "Feature",
-      "properties": {
-        title: "1st store"
-        //id: storeID
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          35.80169677734375,
-          34.023071367612125
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-          title: "2nd store"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          36.05987548828124,
-          34.15954545771158
-        ]
-      }
-    }
-  ]
-}
- 
-L.geoJSON(myGeoJSON, {
-  onEachFeature: function(feature, layer){
-      layer.bindPopup(`<p>${feature.properties.title}</p>`)
-  }
-}).addTo(mymap)
+//call the function to get all stores
+getData();
+
+
 
 
 
