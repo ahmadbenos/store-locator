@@ -1,8 +1,12 @@
-var mymap = L.map('mapid').setView([51.505, -0.09], 12);
+var mymap = L.map('mapid').setView([51.505, -0.09], 2);
 
 // or using async function: 
 async function getMap(){
     try{ 
+      // as a practice in hiding private keys from viewable clientside code,
+      // i added a route that just returns the api to the clientside
+      // though it's an ineffective practice but i just don't like putting
+      // keys in the clientside
  const data = await fetch(`${window.location.href}se_c_aplol`) 
  const res = await data.json(); 
  //console.log(res.key)
@@ -43,7 +47,7 @@ let allStores = stores.map(store => {
 }
 })
 
-console.log(allStores)
+//console.log(allStores)
    
 
   //add the stores to the map

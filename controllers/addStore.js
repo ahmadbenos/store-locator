@@ -30,12 +30,20 @@ exports.addStore = async (req, res) => {
   }catch(error){
     console.log(error)
   }
-
-  } 
+ } 
   // if the user uses the 'use my location' form
-  else {
-
+  else if(userLong && userLat){
+    try{
+      const newStore = new Store({
+       store_Name: storeName,
+       longitude: userLong,
+       latitude: userLat,
+       address: storeAddress,
+      }); 
+      const savedStore = await newStore.save();
+      res.redirect("/");
+    }catch(error){
+      console.log(error)
+    }
   }
-  
-
 }
