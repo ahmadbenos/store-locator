@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-require("dotenv").config()
+
 
 //NOTE: THIS ROUTE WAS MADE TO FETCH MY MAPBOX API AS A PRACTICE TO HIDE KEYS
 // IN CLIENT SIDE JAVASCRIPT, I JUST DON'T LIKE PUTTING KEYS DIRECTLY IN THE CLIENTSIDE

@@ -16,7 +16,7 @@ app.use(express.urlencoded({extended: false}))
 app.use(express.static(path.join(__dirname, "views")));
 
 app.use("/", require("./routes/index"));
-app.use("/se_c_aplol", require("./routes/utils"));
+app.use("/se_c_aplol", require("./utils/utils"));
 app.use("/addStore", require("./routes/add"));
 
 const PORT = process.env.PORT || 5000;
