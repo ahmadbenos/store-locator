@@ -29,45 +29,32 @@ getMap();
 async function getData(){
   const res = await fetch(`${window.location.href}getStores`);
   const stores = await res.json();
-  console.log(stores[0]);
+  //console.log(stores);
+let allStores = stores.map(store => {
+  return {
+    "type": "Feature",
+    "properties": {
+        store_name: store.store_Name
+    },
+    "geometry": {
+        "type": "Point",
+        "coordinates": [store.longitude, store.latitude]
+    }
+}
+})
+
+console.log(allStores)
+   
 
   //add the stores to the map
-  let myGeoJSON = {
+  let storesGeoJSON = {
     "type": "FeatureCollection",
-    "features": [
-      {
-        "type": "Feature",
-        "properties": {
-          title: "1st store"
-          //id: storeID
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            35.80169677734375,
-            34.023071367612125
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-            title: "2nd store"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            36.05987548828124,
-            34.15954545771158
-          ]
-        }
-      }
-    ]
+    "features": allStores
   }
    
-  L.geoJSON(myGeoJSON, {
+  L.geoJSON(storesGeoJSON, {
     onEachFeature: function(feature, layer){
-        layer.bindPopup(`<p>test</p>`)
+        layer.bindPopup(`<p>${feature.properties.store_name}</p>`)
     }
   }).addTo(mymap)
 }
