@@ -32,14 +32,15 @@
                 <a href="/" class="btn btn-danger">Cancel</a>
             </form>
             <hr><br>
-            <form action="/addStore" method="POST">
+            <form action="/addStore" method="POST" id="location-form">
                 <h4>Or use my current location</h4>
-                <div class="form-group">
+                <div class="form-group" id="loc-form">
                     <label for="store-name">Store Name</label>
                     <input autocomplete="off" required type="text" class="form-control" id="store-name"
                         name="storeName">
                 </div>
-                <button id="location-btn" class="btn btn-primary">Use my location</button>
+                <button id="location-btn" class="btn btn-primary">Use my
+                    location</button>
             </form>
         </div>
     </div>

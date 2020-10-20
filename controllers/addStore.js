@@ -7,6 +7,7 @@ exports.loadPage = (req, res) => {
 }
 
 exports.addStore = (req, res) => {
-  const {storeName, storeAddress} = req.body;
-  console.log(storeName+"\n"+storeAddress)
+  const {storeName, userLat, userLong} = req.body;
+  console.log(`${storeName}: lat: ${userLat} and long: ${userLong}`);
+  
 }
