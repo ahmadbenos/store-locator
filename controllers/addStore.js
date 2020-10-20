@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const path = require("path");
+const Store = require("../Models/Store");
 
 
 exports.loadPage = (req, res) => {

@@ -24,6 +24,7 @@ btn.addEventListener("click", async (e)=>{
              userLong.value = Longitude;
             userLat.style.display = "none";
             userLong.style.display = "none";
+            //Submit the form
             locationForm.submit();
         }, (error) => console.log("User denied Access")) //!access denied
     } else { 

@@ -5,7 +5,7 @@ async function getData(){
     try{ 
  const data = await fetch(`${window.location.href}se_c_aplol`) 
  const res = await data.json(); 
- console.log(res.key)
+ //console.log(res.key)
     
 
  L.tileLayer(`https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=${res.key}`, {
