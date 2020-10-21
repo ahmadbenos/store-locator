@@ -10,10 +10,10 @@ exports.loadPage = (req, res) => {
 
 exports.addStore = async (req, res) => {
   const {storeName, storeAddress, userLat, userLong} = req.body;
-  console.log(`${storeName}
+  /* console.log(`${storeName}
   lat: ${userLat}
   long: ${userLong}
-  address: ${storeAddress}`);
+  address: ${storeAddress}`);*/
 
   // if the user uses the address form(not 'use my location')
   if(!userLat && !userLong){
