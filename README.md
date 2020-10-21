@@ -1,4 +1,4 @@
-### Live Demo(will upload soon): [https://google.com](http://google.com "https://google.com")
+### Live Demo: [https://ahmadbenos-store-locator-4.glitch.me/](https://ahmadbenos-store-locator-4.glitch.me/ "https://ahmadbenos-store-locator-4.glitch.me/")
 
 ## Project Description
 Web app in which users can view/add stores on a map. There are 2 methods for adding a store to the map. 
