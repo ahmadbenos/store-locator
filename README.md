@@ -5,7 +5,7 @@ Web app in which users can view/add stores on a map. There are 2 methods for add
 
 **First Method**: A user inputs the store name and store address. The address is then geocoded using mapquest.
 
-**Second Method:** A user inputs the store name and presses a button that gets his *current location* without tying store address.
+**Second Method:** A user inputs the store name and presses a button that gets his *current location* without typing store address.
 
 #### Features:
 - geocoding addresses
